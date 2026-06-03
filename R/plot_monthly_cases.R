@@ -1,19 +1,19 @@
 #' Create a line plot of measles cases for a country in a given year
 #'
-#' @param data.frame cases dataset
 #' @param numerical year
 #' @param string country
 #'
 #' @return ggplot
 #'
 #' @examples
-#' plot_monthly_cases(cases_month, year = 2018, country = "Madagascar)
+#' plot_monthly_cases(year = 2018, country = "Madagascar)
 #'
 #' @export
 
-plot_monthly_cases <- function(cases_month, year = 2018, country = "Madagascar") {
+plot_monthly_cases <- function(year = 2018, country = "Madagascar") {
+  data <- load_data()
 
-  plot_data <- filter_by_country(cases_month, country)  # <-- use helper
+  plot_data <- filter_by_country(data, country)  # <-- use helper
   plot_data <- plot_data[plot_data$year == year, ]
 
   if (nrow(plot_data) == 0) {

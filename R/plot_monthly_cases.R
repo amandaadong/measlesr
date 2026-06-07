@@ -13,7 +13,7 @@
 #' @export
 
 plot_monthly_cases <- function(year = 2012, country = "Madagascar") {
-  if (!(year >= 2012 || year <= 2025)) {
+  if (!(year >= 2012 && year <= 2025)) {
     stop("Enter a valid year. Year must be between 2012 and 2025.")
   }
   plot_data <- filter_by_country(country, by = "cases_month")  # <-- use helper

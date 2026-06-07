@@ -4,7 +4,10 @@
 \alias{load_data}
 \title{Load data set of user's choice (helper function)}
 \usage{
-load_data(file)
+load_data(file = "cases_month")
+}
+\arguments{
+\item{string}{\code{cases_month}, \code{cases_year}, or \code{airquality} file to be loaded}
 }
 \value{
 A tibble containing measles data

@@ -26,7 +26,7 @@ library(measlesr)
 load_data("cases_month")
 ```
 
-This function loads in the measles data set from TidyTuesday. It takes in either `cases_month` or `cases_year` and loads in the appropriate data set. Alternatively, functions `load_month()` and `load_year()` also loads in the monthly and yearly measles datasets without needing a parameter.
+This function loads in the measles data set from TidyTuesday. It takes in (as string) either "cases_month", "cases_year", or "airquality" and loads in the appropriate data set. Alternatively, functions `load_month()` and `load_year()` also loads in the monthly and yearly measles datasets without needing a parameter. Defaults to "cases_month".
 
 ---
 

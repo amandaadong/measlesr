@@ -17,11 +17,12 @@
 #' @export
 
 clean_measles <- function(data, country = NULL) {
-  if (!country %in% data$country) {
-    stop("Enter in a valid country.")
-  }
+
   # Filter by country using filter_by_country() if specified
   if (!is.null(country)) {
+    if (!country %in% data$country) {
+      stop("Enter in a valid country.")
+    }
     by <- if ("month" %in% colnames(data)) "cases_month" else "cases_year"
     data <- filter_by_country(country = country, by = by)
   }

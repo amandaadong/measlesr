@@ -1,11 +1,11 @@
-#' Load measles dataset of user's choice (helper function)
+#' Load data set of user's choice (helper function)
 #'
 #' @return A tibble containing measles data
 #' @importFrom stringr str_c
 #' @export
 load_data <- function(file) {
-  if (!file %in% c("cases_month", "cases_year")) {
-    stop("Data file not found. Enter either 'cases_month' or 'cases_year'")
+  if (!file %in% c("cases_month", "cases_year", "airquality")) {
+    stop("Data file not found. Enter either 'cases_month', 'cases_year', or 'airquality'.")
   }
 
   path <- system.file("extdata", str_c(file, ".parquet"), package = "measlesr")

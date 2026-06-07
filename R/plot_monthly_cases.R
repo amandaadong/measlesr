@@ -8,7 +8,7 @@
 #' @importFrom ggplot2 ggplot aes geom_line geom_point labs theme_minimal
 #' @importFrom stringr str_c
 #' @examples
-#' plot_monthly_cases(year = 2018, country = "Madagascar)
+#' plot_monthly_cases(year = 2018, country = "Madagascar")
 #'
 #' @export
 

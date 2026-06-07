@@ -5,7 +5,7 @@
 #' @return tibble
 #'
 #' @examples
-#' filter_by_country(data, "United States")
+#' filter_by_country(country = "United States of America", by = "cases_month")
 #'
 #' @export
 

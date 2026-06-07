@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_data.R
 \name{load_data}
 \alias{load_data}
-\title{Load measles dataset of user's choice (helper function)}
+\title{Load data set of user's choice (helper function)}
 \usage{
 load_data(file)
 }
@@ -10,5 +10,5 @@ load_data(file)
 A tibble containing measles data
 }
 \description{
-Load measles dataset of user's choice (helper function)
+Load data set of user's choice (helper function)
 }

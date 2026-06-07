@@ -17,3 +17,7 @@ ggplot
 \description{
 Create a line plot of measles cases for a country in a given year
 }
+\examples{
+plot_monthly_cases(year = 2018, country = "Madagascar")
+
+}

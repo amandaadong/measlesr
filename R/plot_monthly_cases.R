@@ -13,12 +13,11 @@
 #' @export
 
 plot_monthly_cases <- function(year = 2012, country = "Madagascar") {
+  if (!(year >= 2012 || year <= 2025)) {
+    stop("Enter a valid year. Year must be between 2012 and 2025.")
+  }
   plot_data <- filter_by_country(country, by = "cases_month")  # <-- use helper
   plot_data <- plot_data[plot_data$year == year, ]
-
-  if (nrow(plot_data) == 0) {
-    stop("No data found for year = ", year, " or country = ", country)
-  }
 
   plot_data$month <- factor(plot_data$month, levels = 1:12,
                             labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",

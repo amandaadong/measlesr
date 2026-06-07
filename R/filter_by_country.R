@@ -15,8 +15,8 @@ filter_by_country <- function(country = "Madagascar", by = "cases_year") {
   }
   data <- load_data(by)
 
-  if (!("country" %in% names(data))) {
-    stop("Data must contain a 'country' column.")
+  if (!(country %in% data$country)) {
+    stop("Country not found. Enter a valid country")
   }
 
   filtered <- data[data$country == country, ]

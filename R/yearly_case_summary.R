@@ -11,6 +11,10 @@
 yearly_case_summary <- function(country = "Madagascar") {
   cases_year <- load_year()
 
+  if (!country %in% cases_year$country) {
+    stop("Country not found. Enter in a valid country.")
+  }
+
   filtered <- filter_by_country(country, "cases_year")
 
   summary <- filtered |>

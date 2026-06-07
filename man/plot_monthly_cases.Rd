@@ -4,7 +4,7 @@
 \alias{plot_monthly_cases}
 \title{Create a line plot of measles cases for a country in a given year}
 \usage{
-plot_monthly_cases(year = 2018, country = "Madagascar")
+plot_monthly_cases(year = 2012, country = "Madagascar")
 }
 \arguments{
 \item{numerical}{year}

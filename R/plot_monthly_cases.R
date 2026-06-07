@@ -4,33 +4,30 @@
 #' @param string country
 #'
 #' @return ggplot
-#'
+#' @importFrom dplyr filter
+#' @importFrom ggplot2 ggplot aes geom_line geom_point labs theme_minimal
+#' @importFrom stringr str_c
 #' @examples
 #' plot_monthly_cases(year = 2018, country = "Madagascar)
 #'
 #' @export
 
-plot_monthly_cases <- function(year = 2018, country = "Madagascar") {
-  data <- load_data()
-
-  plot_data <- filter_by_country(data, country)  # <-- use helper
+plot_monthly_cases <- function(year = 2012, country = "Madagascar") {
+  plot_data <- filter_by_country(country, by = "cases_month")  # <-- use helper
   plot_data <- plot_data[plot_data$year == year, ]
 
   if (nrow(plot_data) == 0) {
-    stop("No data found for year = ", year, ".")
+    stop("No data found for year = ", year, " or country = ", country)
   }
 
-  plot_data$month <- factor(plot_data$month,
-                            levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  plot_data$month <- factor(plot_data$month, levels = 1:12,
+                            labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
 
-  ggplot2::ggplot(plot_data, ggplot2::aes(x = month, y = cases, group = 1)) +
-    ggplot2::geom_line() +
-    ggplot2::geom_point() +
-    ggplot2::labs(
-      title = paste("Monthly Measles Cases -", country, year),
-      x     = "Month",
-      y     = "Total Cases"
-    ) +
-    ggplot2::theme_minimal()
+  ggplot(plot_data, aes(x = month, y = measles_total, group = 1)) +
+    geom_line() + geom_point() +
+    labs(title = str_c("Monthly Measles Cases -", country, year, sep = " "),
+         x = "Month",
+         y = "Number of Cases") +
+    theme_minimal()
 }

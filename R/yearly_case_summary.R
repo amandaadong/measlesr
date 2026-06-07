@@ -1,6 +1,5 @@
 #' Breaks down yearly measles cases for a single country
 #'
-#' @param tibble dataset to be filtered
 #' @param string a country
 #'
 #' @return tibble
@@ -9,9 +8,10 @@
 #'
 #' @export
 
-yearly_case_summary <- function(cases_year, country = "Madagascar") {
+yearly_case_summary <- function(country = "Madagascar") {
+  cases_year <- load_year()
 
-  filtered <- filter_by_country(cases_year, country)
+  filtered <- filter_by_country(country, "cases_year")
 
   summary <- filtered |>
     dplyr::group_by(year) |>

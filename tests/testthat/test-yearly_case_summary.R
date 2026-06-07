@@ -1,7 +1,5 @@
 test_that("cases by year summary works", {
-  cases_year <- load_data()
-
-  result <- yearly_case_summary(cases_year, country = "Madagascar")
+  result <- yearly_case_summary(country = "Madagascar")
 
   # check object type
   expect_s3_class(result, "data.frame")

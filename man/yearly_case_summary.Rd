@@ -4,11 +4,9 @@
 \alias{yearly_case_summary}
 \title{Breaks down yearly measles cases for a single country}
 \usage{
-yearly_case_summary(cases_year, country = "Madagascar")
+yearly_case_summary(country = "Madagascar")
 }
 \arguments{
-\item{tibble}{dataset to be filtered}
-
 \item{string}{a country}
 }
 \value{

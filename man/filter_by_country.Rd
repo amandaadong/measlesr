@@ -4,12 +4,10 @@
 \alias{filter_by_country}
 \title{Filter measles dataset by country}
 \usage{
-filter_by_country(data, country)
+filter_by_country(country = "Madagascar", by = "cases_year")
 }
 \arguments{
-\item{tibble}{dataset}
-
-\item{string}{country to be filtered by}
+\item{string}{dataset to be filtered (year or month)}
 }
 \value{
 tibble

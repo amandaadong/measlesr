@@ -1,8 +1,7 @@
 #' Filter measles dataset by country
 #'
-#' @param tibble dataset
 #' @param string country to be filtered by
-#'
+#' @param string dataset to be filtered (year or month)
 #' @return tibble
 #'
 #' @examples
@@ -10,7 +9,11 @@
 #'
 #' @export
 
-filter_by_country <- function(data, country) {
+filter_by_country <- function(country = "Madagascar", by = "cases_year") {
+  if (!by %in% c("cases_year", "cases_month")) {
+    stop("'by' data not found. Enter either 'cases_year' or 'cases_month'")
+  }
+  data <- load_data(by)
 
   if (!("country" %in% names(data))) {
     stop("Data must contain a 'country' column.")
